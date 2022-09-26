@@ -10,7 +10,8 @@ public interface Action {
 
     /**
      * An action that can be executed by the user
+     * @return 
      */
-    public void execute();
+    public boolean execute();
     
 }

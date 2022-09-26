@@ -14,11 +14,12 @@ import model.Card;
 public class SaveDeck implements Action {
 
 
-    private ArrayList<Card> deck;
+    // The list of cards to be saved
+    private ArrayList<Card> cards;
     private String fileName;
 
-    public SaveDeck(ArrayList<Card> deck, String fileName) {
-        this.deck = deck;
+    public SaveDeck(ArrayList<Card> cards, String fileName) {
+        this.cards = cards;
         this.fileName = fileName;
     }
 
@@ -26,18 +27,30 @@ public class SaveDeck implements Action {
     /**
      * Takes an array of cards, creates a csv files, then saves them to the csv file
      */
-    public void execute() {
+    public boolean execute() {
         File file = new File("data/" + fileName + ".csv");
         try {
             file.createNewFile();
             FileWriter writer = new FileWriter(file);
             writer.write("question,answer,id");
-            for(Card card : deck){
+            for(Card card : cards){
+                writer.write(System.lineSeparator());
                 writer.write(card.getQuestion() + "," + card.getAnswer() + "," + card.getID());
             }
             writer.close();
+            return true;
         } catch (Exception e) {
-        
+            System.err.println("Error saving deck");
+            e.printStackTrace();
+            return false;
         }        
     }
+
+    // public static void main(String[] args) {
+    //     ArrayList<Card> cards = new ArrayList<Card>();
+    //     cards.add(new Card("Who is the best?", "Phil", 1));
+    //     cards.add(new Card("Who is the best?", "Bings", 2));
+    //     SaveDeck saveDeck = new SaveDeck(cards, "bingus");
+    //     saveDeck.execute();
+    // }
 }

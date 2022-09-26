@@ -37,12 +37,36 @@ public class Deck {
                         Card newScoreCard = new ScoreCard(line[0], line[1], Integer.parseInt(line[2]));
                         this.cards.add(newScoreCard);
                     default:
-                        break;
+                        Card newCard = new Card(line[0], line[1], Integer.parseInt(line[2]));
+                        this.cards.add(newCard);;
                 }
             }
             return true;
         } 
         catch (FileNotFoundException e) {return false;}
+    }
+
+//---------------------------------Getters---------------------------------//
+
+    /**
+     * @return the cards
+     */
+    public ArrayList<Card> getCards() {
+        return cards;
+    }
+
+    /**
+     * @return the type
+     */
+    public QuizType getType() {
+        return type;
+    }
+
+    /**
+     * @return the size of the deck
+     */
+    public int getSize() {
+        return this.cards.size();
     }
 
     public static void main(String[] args) {
@@ -52,5 +76,5 @@ public class Deck {
             System.out.println(card);
         }
     }
-    
+
 }
