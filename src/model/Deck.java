@@ -69,12 +69,4 @@ public class Deck {
         return this.cards.size();
     }
 
-    public static void main(String[] args) {
-        Deck deck = new Deck(QuizType.NOTE);
-        deck.loadDeck("data/test.csv");
-        for(Card card : deck.cards){
-            System.out.println(card);
-        }
-    }
-
 }
