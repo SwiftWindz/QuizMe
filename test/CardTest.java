@@ -25,5 +25,4 @@ public class CardTest {
         assertEquals(actualID, expectedID);
 
     }
-    
 }

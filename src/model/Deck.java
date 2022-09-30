@@ -20,30 +20,39 @@ public class Deck {
         this.type = type;
     }
 
+    public Deck(QuizType type, ArrayList<Card> cards){
+        this.cards = cards;
+        this.type = type;
+    }
+
     /**
      * Takes a csv file and loads the deck with the cards of the correct type
      * @param filename String: the name of the file to load
      */
     public boolean loadDeck(String fileName){
-        try (Scanner scanner = new Scanner(new File(fileName))) {
+        try (Scanner scanner = new Scanner(new File("data/" + fileName + ".csv"))) {
             scanner.nextLine();
-            while(scanner.hasNext()){
+            while(scanner.hasNextLine()){
                 String[] line = scanner.nextLine().split(",");
                 switch (this.type) {
                     case NOTE:
                         Card newNoteCard = new NoteCard(line[0], line[1], Integer.parseInt(line[2]));
                         this.cards.add(newNoteCard);
+                        break;
                     case SCORE:
                         Card newScoreCard = new ScoreCard(line[0], line[1], Integer.parseInt(line[2]));
                         this.cards.add(newScoreCard);
+                        break;
                     default:
                         Card newCard = new Card(line[0], line[1], Integer.parseInt(line[2]));
                         this.cards.add(newCard);;
+                        break;
                 }
             }
             return true;
         } 
-        catch (FileNotFoundException e) {return false;}
+        catch (FileNotFoundException e) {
+            return false;}
     }
 
 //---------------------------------Getters---------------------------------//

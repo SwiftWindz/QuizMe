@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import model.Card;
+import model.Deck;
 
 /**
  * Class that takes an array of cards that contain the string contents of cards
@@ -18,8 +19,8 @@ public class SaveDeck implements Action {
     private ArrayList<Card> cards;
     private String fileName;
 
-    public SaveDeck(ArrayList<Card> cards, String fileName) {
-        this.cards = cards;
+    public SaveDeck(Deck deck, String fileName) {
+        this.cards = deck.getCards();
         this.fileName = fileName;
     }
 
@@ -45,12 +46,4 @@ public class SaveDeck implements Action {
             return false;
         }        
     }
-
-    // public static void main(String[] args) {
-    //     ArrayList<Card> cards = new ArrayList<Card>();
-    //     cards.add(new Card("Who is the best?", "Phil", 1));
-    //     cards.add(new Card("Who is the best?", "Bings", 2));
-    //     SaveDeck saveDeck = new SaveDeck(cards, "bingus");
-    //     saveDeck.execute();
-    // }
 }
