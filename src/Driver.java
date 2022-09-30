@@ -1,3 +1,5 @@
+import view.GUI;
+
 /**
 * Driver for program
 * @Author: Phil Ganem
@@ -8,6 +10,8 @@ public class Driver {
     /**
      * Runs the program
      */
-    public static void main(String[] args){}
+    public static void main(String[] args){
+        GUI.launch(GUI.class);
+    }
 
 }
