@@ -15,8 +15,9 @@ public class StartMenu {
         HBox titlebox = new HBox();
         VBox buttonbox = new VBox();
         
-        //change background color to blue
+        //change background color to yellow
         view.setStyle("-fx-background-color: #fcc332;");
+        //change button color to black
         buttonbox.setStyle("-fx-alignment: center;" +
                             "-fx-spacing: 25px;" +
                             "-fx-padding: 50px;" +
@@ -33,14 +34,14 @@ public class StartMenu {
         // buttons
         //Brings the user to the main menu
         Button start = new Button("Start");
-        start.setOnAction(e -> {
+        start.setOnAction((e) -> {
             MainMenu mainMenu = new MainMenu();
             stage.setScene(mainMenu.MainMenuScene(stage));
             
         });
         //Exits the program
         Button exit = new Button("Exit");
-        exit.setOnAction(e -> {
+        exit.setOnAction((e) -> {
             Platform.exit();
         });
 
