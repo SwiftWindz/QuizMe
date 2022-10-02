@@ -1,10 +1,4 @@
-import java.util.ArrayList;
-import java.util.Scanner;
 
-import model.Card;
-import model.Deck;
-import model.QuizType;
-import model.ScoreCard;
 import view.GUI;
 
 /**

@@ -10,11 +10,11 @@ import javafx.stage.Stage;
 public class GUI extends Application {
 
     @Override
-    public void start(Stage primaryStage) {
-        primaryStage.setTitle("QuizMe!");
+    public void start(Stage stage) {
+        stage.setTitle("QuizMe!");
         StartMenu startMenu = new StartMenu();
-        primaryStage.setScene(startMenu.StartMenuScene());
-        primaryStage.show();
+        stage.setScene(startMenu.StartMenuScene(stage));
+        stage.show();
     }
 }
     

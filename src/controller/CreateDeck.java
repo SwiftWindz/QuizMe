@@ -1,5 +1,4 @@
 package controller;
-import model.Deck;
 
 /**
  * An action that creates a deck with new cards

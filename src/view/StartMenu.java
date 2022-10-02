@@ -6,10 +6,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class StartMenu {
 
-    public Scene StartMenuScene() {
+    public Scene StartMenuScene(Stage stage) {
         VBox view = new VBox();
         HBox titlebox = new HBox();
         VBox buttonbox = new VBox();
@@ -33,7 +34,9 @@ public class StartMenu {
         //Brings the user to the main menu
         Button start = new Button("Start");
         start.setOnAction(e -> {
-            //TODO: start game
+            MainMenu mainMenu = new MainMenu();
+            stage.setScene(mainMenu.MainMenuScene(stage));
+            
         });
         //Exits the program
         Button exit = new Button("Exit");
