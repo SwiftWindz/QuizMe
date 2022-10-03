@@ -15,6 +15,7 @@ public class StartGame {
         VBox view = new VBox();
         VBox buttonBox = new VBox();  
 
+        view.getChildren().addAll(buttonBox);
         return new Scene(view, 750, 500);
     }
 }

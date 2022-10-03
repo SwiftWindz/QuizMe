@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import model.Card;
-import model.Deck;
 
 /**
  * Class that takes an array of cards that contain the string contents of cards
