@@ -84,6 +84,14 @@ public class Deck {
         this.cards.remove(card);
     }
 
+    /**
+     * Adds a card to the deck
+     * @return
+     */
+    public void addCard(Card card){
+        this.cards.add(card);
+    }
+
 //---------------------------------Getters---------------------------------//
 
     /**
