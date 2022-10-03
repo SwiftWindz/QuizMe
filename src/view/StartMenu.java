@@ -8,6 +8,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+/**
+ * The opening menu of the application
+ * @author Phil Ganem
+ * @date 10/3/2022
+ */
 public class StartMenu {
 
     public Scene StartMenuScene(Stage stage) {

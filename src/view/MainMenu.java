@@ -6,6 +6,11 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+/**
+ * Allows the user to navigate to the other scenes
+ * @author Phil Ganem
+ * @date 10/3/2022
+ */
 public class MainMenu {
 
     public Scene MainMenuScene(Stage stage) {

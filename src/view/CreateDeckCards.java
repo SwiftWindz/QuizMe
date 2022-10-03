@@ -10,6 +10,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Card;
 
+/**
+ * Allows the user to create a deck of cards
+ * @author Phil Ganem
+ * @date 10/3/2022
+ */
 public class CreateDeckCards {
     
     public Scene CreateDeckCardsScene(Stage stage, String deckName, ArrayList<Card> cardsArg) {

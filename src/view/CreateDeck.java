@@ -11,6 +11,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Card;
 
+/**
+ * Allows the user to init a deck to add to
+ * @author Phil Ganem
+ * @date 10/3/2022
+ */
 public class CreateDeck {
     
     public Scene CreateDeckScene(Stage stage) {

@@ -9,6 +9,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Card;
 
+/**
+ * Allows the user to view and edit the deck during deck creation
+ * @author Phil Ganem
+ * @date 10/3/2022
+ */
 public class ViewDeck {
 
     public Button editCard(Card cardIndex){
