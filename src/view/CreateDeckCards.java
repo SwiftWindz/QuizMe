@@ -1,7 +1,7 @@
 package view;
 
 import java.util.ArrayList;
-import controller.SaveDeck;
+import controller.SaveDeckAction;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -51,7 +51,7 @@ public class CreateDeckCards {
         //Save deck and return to main menu
         Button save = new Button("Save");
         save.setOnAction((e) -> {
-            SaveDeck saveDeck = new SaveDeck(cards, deckName);
+            SaveDeckAction saveDeck = new SaveDeckAction(cards, deckName);
             Boolean result = saveDeck.execute();
             if(result) {
                 MainMenu mainMenu = new MainMenu();

@@ -12,14 +12,14 @@ import model.Deck;
  * @author Phil Ganem
  * @date 9/23/2022
  */
-public class SaveDeck implements Action {
+public class SaveDeckAction implements Action {
 
 
     // The list of cards to be saved
     private ArrayList<Card> cards;
     private String fileName;
 
-    public SaveDeck(ArrayList<Card> cards, String fileName) {
+    public SaveDeckAction(ArrayList<Card> cards, String fileName) {
         this.cards = cards;
         this.fileName = fileName;
     }
