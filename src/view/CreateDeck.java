@@ -1,5 +1,7 @@
 package view;
 
+import java.util.ArrayList;
+
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -7,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import model.Card;
 
 public class CreateDeck {
     
@@ -41,7 +44,7 @@ public class CreateDeck {
                 return;
             }
             CreateDeckCards cardcreate  = new CreateDeckCards();
-            stage.setScene(cardcreate.CreateDeckCardsScene(stage, deckName.getText()));
+            stage.setScene(cardcreate.CreateDeckCardsScene(stage, deckName.getText(), new ArrayList<Card>()));
 
         });
 

@@ -19,8 +19,8 @@ public class SaveDeck implements Action {
     private ArrayList<Card> cards;
     private String fileName;
 
-    public SaveDeck(Deck deck, String fileName) {
-        this.cards = deck.getCards();
+    public SaveDeck(ArrayList<Card> cards, String fileName) {
+        this.cards = cards;
         this.fileName = fileName;
     }
 

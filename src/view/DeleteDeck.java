@@ -10,6 +10,14 @@ public class DeleteDeck {
         VBox view = new VBox();
         VBox buttonBox = new VBox();  
 
+        //lists all decks in data directory
+        
+        //button to delete deck
+
+        //button to return to main menu
+
+
+
         return new Scene(view, 750, 500);
     }
 
