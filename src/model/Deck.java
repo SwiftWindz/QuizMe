@@ -23,7 +23,7 @@ public class Deck {
      * @param filename String: the name of the file to load
      */
     public boolean loadDeck(String fileName, QuizType type){
-        try (Scanner scanner = new Scanner(new File("data/" + fileName + ".csv"))) {
+        try (Scanner scanner = new Scanner(new File("data/" + fileName))) {
             scanner.nextLine();
             while(scanner.hasNextLine()){
                 String[] line = scanner.nextLine().split(",");

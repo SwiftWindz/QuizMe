@@ -2,5 +2,15 @@ package model;
 
 public enum QuizType {
     NOTE, 
-    SCORE
+    SCORE,
+    UNKNOWN;
+
+    @Override
+    public String toString() {
+        switch(this) {
+            case NOTE: return "Note";
+            case SCORE: return "Score";
+            default: return "Unknown";
+        }
+    }
 }
