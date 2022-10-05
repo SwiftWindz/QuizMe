@@ -17,6 +17,12 @@ import model.Card;
  */
 public class CreateDeckCards {
     
+    /**
+     * Creates scene that allows the user to create a deck of cards in a csv file
+     * @param deckName
+     * @param cards
+     * @return
+     */
     public Scene CreateDeckCardsScene(Stage stage, String deckName, ArrayList<Card> cardsArg) {
 
         ArrayList<Card> cards = cardsArg;
@@ -73,6 +79,7 @@ public class CreateDeckCards {
             stage.setScene(mainMenu.MainMenuScene(stage));
         });
 
+        //Add all elements to view
         cardBox.getChildren().addAll(cardAnswer, cardQuestion);
         buttonBox.getChildren().addAll(addCard, save, viewDeck, back);
         view.getChildren().addAll(deckNameLabel, cardBox, buttonBox);

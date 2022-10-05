@@ -7,6 +7,7 @@ import model.Deck;
 
 public class NoteGame {
 
+    //TODO implement note game
     public Scene noteScene(Stage stage, Deck deck) {
 
         VBox view = new VBox();

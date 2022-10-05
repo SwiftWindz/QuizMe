@@ -18,6 +18,12 @@ import model.Card;
  */
 public class CreateDeck {
     
+    /**
+     * Creates scene that allows the user to init a deck to add to
+     * @param deckName
+     * @param cards
+     * @return
+     */
     public Scene CreateDeckScene(Stage stage) {
         VBox view = new VBox();
         VBox buttonBox = new VBox();

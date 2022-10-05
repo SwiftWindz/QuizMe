@@ -15,6 +15,11 @@ import javafx.stage.Stage;
  */
 public class StartMenu {
 
+    /**
+     * Creates the start menu scene
+     * @param stage
+     * @return
+     */
     public Scene StartMenuScene(Stage stage) {
         VBox view = new VBox();
         HBox titlebox = new HBox();

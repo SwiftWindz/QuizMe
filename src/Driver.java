@@ -9,7 +9,7 @@ import view.GUI;
 public class Driver {
 
     public static void main(String[] args){
-        //GUI
+        //Entry point for program
         GUI.launch(GUI.class);
     }
 }

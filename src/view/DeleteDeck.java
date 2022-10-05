@@ -17,10 +17,14 @@ import controller.DeleteDeckAction;
  */
 public class DeleteDeck {
     
+    /**
+     * Creates a scene that deletes a deck
+     * @param fileName
+     * @return Button
+     */
     public Scene DeleteDeckScene(Stage stage) {
         VBox view = new VBox();
         VBox buttonBox = new VBox();  
-
 
         //lists all decks in data directory
         File folder = new File("data");
@@ -43,7 +47,6 @@ public class DeleteDeck {
             }
         }
         
-
         //button to return to main menu
         Button back = new Button("Back");
         back.setOnAction((e) -> {
@@ -51,6 +54,7 @@ public class DeleteDeck {
             stage.setScene(mainMenu.MainMenuScene(stage));
         });
 
+        //add all elements to view
         buttonBox.getChildren().add(back);
         view.getChildren().addAll(buttonBox);
         return new Scene(view, 750, 500);

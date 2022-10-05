@@ -13,10 +13,16 @@ import javafx.stage.Stage;
  */
 public class MainMenu {
 
+    /**
+     * Creates the main menu scene
+     * @param stage
+     * @return Scene
+     */
     public Scene MainMenuScene(Stage stage) {
         VBox view = new VBox();
         VBox buttonBox = new VBox();  
 
+        //Style
         view.setStyle("-fx-background-color: #fcc332;");
         buttonBox.setStyle("-fx-alignment: center;" +
         "-fx-spacing: 25px;" +
@@ -24,6 +30,7 @@ public class MainMenu {
         "-fx-color: #000000;" +
         "-fx-font-size: 40px;");
 
+        //Buttons
         Button startAGame = new Button("Play a Game");
         startAGame.setOnAction((e) -> {
             StartGame startGame = new StartGame();
@@ -44,6 +51,7 @@ public class MainMenu {
             Platform.exit();
         });
 
+        //Adding to view
         buttonBox.getChildren().addAll(startAGame, createADeck, deleteADeck, exit);
         view.getChildren().addAll(buttonBox);
     

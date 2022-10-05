@@ -2,7 +2,6 @@ package view;
 
 import controller.AnswerCard;
 import controller.GetCurrentCard;
-import controller.NextCard;
 import controller.RemoveCardFromDeck;
 import controller.ShuffleDeck;
 import javafx.scene.Scene;
@@ -14,22 +13,22 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Deck;
 
+/**
+ * Allows the user to play a score game
+ * @author Phil Ganem
+ * @date 10/3/2022
+ */
 public class ScoreGame {
 
-
     public Scene scoreScene(Stage stage, Deck deck, int score) {
+        //TODO Style this page
         //Actions on 
         ShuffleDeck shuffleDeck = new ShuffleDeck(deck);
         shuffleDeck.execute();
         GetCurrentCard getCurrentCard = new GetCurrentCard(deck);
         getCurrentCard.execute();
-        NextCard nextCard = new NextCard(deck);
         //Score
         VBox view = new VBox();
-        
-
-        
-
         //Exit button
         Button exit = new Button("Exit");
         exit.setOnAction((e) -> {
@@ -46,8 +45,10 @@ public class ScoreGame {
         answerField.setText("Enter answer here");
         //Button to submit answer
         Button submit = new Button("Submit");
+        //TODO: Show correct answer if wrong
         submit.setOnAction((e) -> {
             AnswerCard answerCard = new AnswerCard(deck, answerField.getText());
+            //If answer is correct
             if(answerCard.execute()) {
                 RemoveCardFromDeck removeCardFromDeck = new RemoveCardFromDeck(deck, getCurrentCard.getCurrentCard());
                 removeCardFromDeck.execute();
@@ -56,12 +57,10 @@ public class ScoreGame {
                     stage.setScene(new ScoreGame().scoreScene(stage, deck, score + 1));
                     return;
                 }
-                stage.setScene(new StartGame().StartGameScene(stage));
             }
-            nextCard.execute();
-            card.getChildren().clear();
-            card.getChildren().addAll(new Label(getCurrentCard.getCurrentCard().getQuestion()), new Label("..."));
-            
+            shuffleDeck.execute();
+            stage.setScene(new ScoreGame().scoreScene(stage, deck, score));
+            return;
         });
 
         answer.getChildren().addAll(answerField, submit);

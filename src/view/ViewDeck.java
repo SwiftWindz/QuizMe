@@ -16,6 +16,11 @@ import model.Card;
  */
 public class ViewDeck {
 
+    /**
+     * Allows the user to edit added cards
+     * @param cardIndex
+     * @return
+     */
     public Button editCard(Card cardIndex){
         Button editCard = new Button("Edit");
         editCard.setOnAction((e) -> {
@@ -25,6 +30,11 @@ public class ViewDeck {
         
     }
 
+    /**
+     * Allows the user to view added cards
+     * @param cardIndex
+     * @return
+     */
     public Scene ViewDeckScene(Stage stage, ArrayList<Card> cardsArg, String deckName) {
 
         ArrayList<Card> cards = cardsArg;
@@ -36,6 +46,7 @@ public class ViewDeck {
         Label deckNameLabel = new Label(deckName);    
 
         //show all cards in deck
+        //TODO add Delete button
         for(Card card : cards) {
             Label cardLabel = new Label(card.getQuestion());
             Button editCard = editCard(card);

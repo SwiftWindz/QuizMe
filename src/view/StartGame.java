@@ -21,9 +21,16 @@ import model.QuizType;
  */
 public class StartGame {
 
+    //Game type
     QuizType quizType = QuizType.UNKNOWN;
+    //Deck
     String selectedDeck = "Unknown";
 
+    /**
+     * Creates a button that selects the deck
+     * @param fileName
+     * @return Button
+     */
     public Button selectFileButton(String fileName){
         Button selectDeck = new Button("Select");
         selectDeck.setOnAction((e) -> {
@@ -44,6 +51,11 @@ public class StartGame {
         return selectDeck;
     }
 
+    /**
+     * Creates a button that selects the game type
+     * @param type
+     * @return Button
+     */
     public Button gameTypeButton(QuizType type){
         Button gameType = new Button(type.toString());
         gameType.setOnAction((e) -> {
@@ -63,6 +75,11 @@ public class StartGame {
         return gameType;
     }
     
+    /**
+     * Creates the start game scene
+     * @param stage
+     * @return Scene
+     */
     public Scene StartGameScene(Stage stage) {
         VBox view = new VBox();
         VBox buttonBox = new VBox();
@@ -124,9 +141,6 @@ public class StartGame {
                     default:
                         return;
                 }
-                // Game game = new Game(deck);
-                // Game game = new Game();
-                // stage.setScene(game.GameScene(stage, selectedDeck, quizType));
             }
         });
 
@@ -137,6 +151,7 @@ public class StartGame {
             stage.setScene(mainMenu.MainMenuScene(stage));
         });
 
+        //adds elements to the view
         buttonBoxGameType.getChildren().addAll(Score, Note);
         buttonBox.getChildren().addAll(buttonBoxFileSelect,buttonBoxGameType);
         view.getChildren().addAll(title, buttonBox, start, back);
