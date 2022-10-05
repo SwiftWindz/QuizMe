@@ -1,12 +1,17 @@
 package view;
 
 import java.io.File;
+import java.util.ArrayList;
+
+import controller.LoadDeck;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import model.Card;
+import model.Deck;
 import model.QuizType;
 
 /**
@@ -17,19 +22,19 @@ import model.QuizType;
 public class StartGame {
 
     QuizType quizType = QuizType.UNKNOWN;
-    String selectedDeck;
+    String selectedDeck = "Unknown";
 
     public Button selectFileButton(String fileName){
         Button selectDeck = new Button("Select");
         selectDeck.setOnAction((e) -> {
-            if(selectedDeck == null || selectedDeck.equals("")) {
+            if(selectedDeck.equals("Unknown")) {
                 selectedDeck = fileName;
                 System.out.println(selectedDeck);
                 //change color to grey
                 selectDeck.setStyle("-fx-background-color: #cccccc;");
             }
             else if (selectedDeck.equals(fileName)){
-                selectedDeck = null;
+                selectedDeck = "Unknown";
                 System.out.println(selectedDeck);
                 //change color to black
                 selectDeck.setStyle("-fx-background-color: #000000;");
@@ -60,6 +65,7 @@ public class StartGame {
     
     public Scene StartGameScene(Stage stage) {
         VBox view = new VBox();
+        VBox buttonBox = new VBox();
         VBox buttonBoxFileSelect = new VBox();  
         HBox buttonBoxGameType = new HBox();
 
@@ -99,12 +105,26 @@ public class StartGame {
         //Start game
         Button start = new Button("Start");
         start.setOnAction((e) -> {
-            //TODO: GAme type too
             if(selectedDeck == null || selectedDeck.equals("")) {
                 return;
             }
             else {
-                //TODO: start game
+                Deck deck = new Deck(new ArrayList<Card>());
+                LoadDeck loadDeck = new LoadDeck(deck, quizType, selectedDeck);
+                loadDeck.execute();
+                switch(quizType) {
+                    case SCORE:
+                        Scene gameScene = new ScoreGame().scoreScene(stage, deck, 0);
+                        stage.setScene(gameScene);
+                        break;
+                    case NOTE:
+                        Scene noteScene = new NoteGame().noteScene(stage, deck);
+                        stage.setScene(noteScene);
+                        break;
+                    default:
+                        return;
+                }
+                // Game game = new Game(deck);
                 // Game game = new Game();
                 // stage.setScene(game.GameScene(stage, selectedDeck, quizType));
             }
@@ -118,7 +138,8 @@ public class StartGame {
         });
 
         buttonBoxGameType.getChildren().addAll(Score, Note);
-        view.getChildren().addAll(title, buttonBoxFileSelect, buttonBoxGameType, start, back);
+        buttonBox.getChildren().addAll(buttonBoxFileSelect,buttonBoxGameType);
+        view.getChildren().addAll(title, buttonBox, start, back);
         return new Scene(view, 750, 500);
     }
 }

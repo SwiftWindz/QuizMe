@@ -13,9 +13,12 @@ public class Deck {
 
     //The card objects that are in the deck
     private ArrayList<Card> cards;
+    private int currentCard;
+
 
     public Deck(ArrayList<Card> cards){
         this.cards = cards;
+        this.currentCard = 0;
     }
 
     /**
@@ -91,6 +94,22 @@ public class Deck {
     public void addCard(Card card){
         this.cards.add(card);
     }
+
+    /**
+     * Gets the current card
+     * @return Card: the current card
+     */
+    public Card getCurrentCard(){
+        return this.cards.get(this.currentCard);
+    }
+
+    /**
+     * Gets the next card
+     */
+    public void SetNextCard(){
+        this.currentCard++;
+    }
+
 
 //---------------------------------Getters---------------------------------//
 
